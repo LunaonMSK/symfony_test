@@ -8,7 +8,6 @@
 
 namespace App\Controller;
 
-
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -45,5 +44,14 @@ class LuckyController extends AbstractController
     {
         $res = $productRepository->findAllProducts();
         return new JsonResponse($res);
+    }
+
+    /**
+     * @Route("lucky/demo" , methods={"GET"})
+     */
+    public function demo()
+    {
+        swoole_server();
+        phpinfo();
     }
 }
